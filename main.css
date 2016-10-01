@@ -31,10 +31,7 @@ body
     overflow: hidden;
     padding:2.5%;
 }
-#cv
-{
-    height:150%;
-}
+
 #home
 {
     background: url(background.jpg);
@@ -341,18 +338,59 @@ div#slider figure {
   text-align: left;
   font-size: 0;
   animation: 30s slidy infinite; 
+    animation-delay: 5s;
 }
 
+div#slider2 { overflow: hidden; height:250px; }
+div#slider2 figure img { width: 20%; float: left; }
+div#slider2 figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite; 
+}
 
 @keyframes slidy {
 0% { left: 0%; }
-20% { left: 0%; }
-25% { left: -100%; }
-45% { left: -100%; }
+5% { left: -100%; }
+15% { left: -100%; }
+25% { left: -200%; }
 50% { left: -200%; }
-70% { left: -200%; }
+60% { left: -300%; }
 75% { left: -300%; }
-95% { left: -300%; }
-100% { left: -400%; }
+85% { left: -400%; }
+100%{ left: -400%; }
 }
 
+
+div#textslider { height:88px; overflow: hidden;}
+div#textslider figure .capt { width: 20%; float: left;
+    height: 25px;
+    line-height:25px;
+    display: inline-block;}
+div#textslider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  animation: 30s slidy infinite; 
+    animation-delay: 5s;
+}
+
+div#textslider2 { height:88px; overflow: hidden;}
+div#textslider2 figure .capt { width: 20%; float: left;
+    height: 25px;
+    line-height:25px;
+    display: inline-block;}
+div#textslider2 figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  animation: 30s slidy infinite; 
+}
