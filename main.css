@@ -6,6 +6,7 @@ html, body {
 
 body
 {
+    margin:0 auto; /*centers the div horizontally in all browsers (except IE)*/
     font-family: open sans, arial;
     letter-spacing: -.5px;
     overflow-x: hidden;
@@ -256,13 +257,13 @@ h3
 .ring 
 {
     width:420px;
-    height:390px;
-    padding-top:30px;
+    height:320px;
+    padding-top:100px;
     border-radius: 100%;
     border:10px solid #666;
     background: white;
     text-align: center;
-    margin-left:345px;
+    position:absolute;
 }
 
 .ring h1
@@ -284,7 +285,11 @@ h3
 
 }
 
-
+#menu
+{
+    margin-left:470px;
+    margin-top:150px;
+}
 
 
 #menu img
@@ -308,8 +313,11 @@ h3
 #email {
     display:none;
     font-weight:100;
+    margin-top:-80px;
     margin-left:40px;
     position:absolute;
+         transition: ease-in-out .4s;
+    -webkit-transition:ease-in-out .4s;
 }
 
 .mail
@@ -326,7 +334,8 @@ h3
 .mail:hover + #email
 {
 display:block;
-margin-top:-30px;}
+    margin-left:90px;
+}
 
 div#slider { overflow: hidden; height:250px; }
 div#slider figure img { width: 20%; float: left; }
