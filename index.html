@@ -107,15 +107,15 @@ $(document).ready(function(){
         
         <div class = "imghold">
             <h3>design</h3><br>
-            <div class = "crop"><img class = "fancybox" src = smq.jpg style = "margin-left:-50px; margin-top:-30px;" title = 
-                                     "Snapchat geotag for South Mid-Quads, accepted 9/26/16"></div>
+            <div class = "crop"><a href = "smq.jpg" class = "lightbox_trigger"><img class = "fancybox" src = smq.jpg style = "margin-left:-50px; margin-top:-30px;" title = 
+                                     "Snapchat geotag for South Mid-Quads, accepted 9/26/16"></a></div>
             <div class = "crop"><img class = "fancybox" src = clubs.jpg style = "margin-left:-50px; margin-top:-30px;" title = "Logo designs intended for T-shirt / sweatshirt prints for clubs at my local high school, 2015"></div>
             <div class = "crop"><img class = "fancybox" src = scholarshipconcert2.jpg title = "Outside cover of a program for a scholarship concert, 2015" ></div>
             <div class = "crop"><img class = "fancybox" src = scholarshipconcert1.jpg title = "Inside contents for the same scholarship concert program" ></div>
         </div>
         <div class = "imghold">
             <h3>code</h3><br>
-            <div class = "crop"><img class = "fancybox" src = tumblr1.JPG title = "Homepage for a Tumblr theme designed for personal use, 2015"></div>
+            <div class = "crop"><a href="tumblr1.JPG" class = "lightbox_trigger"> <img src = tumblr1.JPG title = "Homepage for a Tumblr theme designed for personal use, 2015"></a></div>
             <div class = "crop"><img class = "fancybox" src = tumblr2.JPG title = "Content pages for the same Tumblr theme, 2015"></div>
             <div class = "crop"><img class = "fancybox" src = site1.JPG title = "This website, lol"></div>
             <div class = "crop"><img class = "fancybox" src = site2.JPG ></div>
@@ -152,28 +152,59 @@ smoothScroll.init();
     
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/fancybox/1.3.4/jquery.fancybox-1.3.4.pack.min.js"></script>
-<script type="text/javascript">
-    $(function($){
-        var addToAll = false;
-        var gallery = false;
-        var titlePosition = 'inside';
-        $(addToAll ? 'img' : 'img.fancybox').each(function(){
-            var $this = $(this);
-            var title = $this.attr('title');
-            var src = $this.attr('data-big') || $this.attr('src');
-            var a = $('<a href="#" class="fancybox"></a>').attr('href', src).attr('title', title);
-            $this.wrap(a);
-        });
-        if (gallery)
-            $('a.fancybox').attr('rel', 'fancyboxgallery');
-        $('a.fancybox').fancybox({
-            titlePosition: titlePosition
-        });
-    });
-    $.noConflict();
+
+    <script>
+jQuery(document).ready(function($) {
+	
+	$('.lightbox_trigger').click(function(e) {
+		
+		//prevent default action (hyperlink)
+		e.preventDefault();
+		
+		//Get clicked link href
+		var image_href = $(this).attr("href");
+		
+		/* 	
+		If the lightbox window HTML already exists in document, 
+		change the img src to to match the href of whatever link was clicked
+		
+		If the lightbox window HTML doesn't exists, create it and insert it.
+		(This will only happen the first time around)
+		*/
+		
+		if ($('#lightbox').length > 0) { // #lightbox exists
+			
+			//place href as img src value
+			$('#content').html('<img src="' + image_href + '" />');
+		   	
+			//show lightbox window - you could use .show('fast') for a transition
+			$('#lightbox').show();
+		}
+		
+		else { //#lightbox does not exist - create and insert (runs 1st time only)
+			
+			//create HTML markup for lightbox window
+			var lightbox = 
+			'<div id="lightbox">' +
+				'<p>Click to close</p>' +
+				'<div id="content">' + //insert clicked link's href into img src
+					'<img src="' + image_href +'" />' +
+				'</div>' +	
+			'</div>';
+				
+			//insert lightbox HTML into page
+			$('body').append(lightbox);
+		}
+		
+	});
+	
+	//Click anywhere on the page to get rid of lightbox window
+	$('#lightbox').live('click', function() { //must use live, as the lightbox element is inserted into the DOM
+		$('#lightbox').hide();
+	});
+
+});
 </script>
-    
         <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript">
 (function($) {          
